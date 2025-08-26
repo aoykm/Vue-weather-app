@@ -21,6 +21,7 @@ import "./assets/base.css"
 const loading=ref(false)
 
 const results=reactive({
+  localtime:"",
   country:"",
   cityName:"",
   temperature:"",
@@ -32,6 +33,7 @@ const getWeather=(city)=>{
   loading.value=true
   axios.get(`http://api.weatherapi.com/v1/current.json?key=9854fbc471654383a6112249253007&q=${city}&aqi=no`)
   .then(res=>{
+    results.localtime=res.data.location.localtime,
     results.country=res.data.location.country,
     results.cityName=res.data.location.name,
     results.temperature=res.data.current.temp_c,

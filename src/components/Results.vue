@@ -1,4 +1,5 @@
 <template>
+     <div class="results-time" v-if="localtime">現地日時：{{ localtime }}</div>
     <div class="results-country" v-if="country">{{ country }}</div>
     <div class="results-city" v-if="cityName">{{ cityName }}</div>
     <div class="results-temp" v-if="temperature">{{ temperature }}</div>
@@ -15,5 +16,5 @@ const props=defineProps({
     results:Object
 })
 
-const {country,cityName,temperature,icon,conditionText}=toRefs(props.results)
+const {localtime,country,cityName,temperature,icon,conditionText}=toRefs(props.results)
 </script>
